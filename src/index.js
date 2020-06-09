@@ -11,6 +11,7 @@ const octokit = new Octokit({
 exec(
   `git diff refs/remotes/origin/${process.env.GITHUB_BASE_REF} refs/remotes/origin/${process.env.GITHUB_HEAD_REF} package.json`,
   (err, out, e) => {
+    console.log(core.getInput('strict'));
     const packageList = utils.getPackageListFromDiff(out);
     const requests = packageList.map(package => {
       const r = fetch(`https://bundlephobia.com/api/size?package=${package}`, {
