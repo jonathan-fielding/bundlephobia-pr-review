@@ -8,7 +8,7 @@ exports.getMarkDownTable = (report) => {
 <summary>Action settings</summary>
 
 **Treshold**: < ${core.getInput('threshold')} bytes
-**Strict mode**: ${typeof core.getInput('strict')} ${core.getInput('strict')}
+**Strict mode**: ${core.getInput('strict') === 'true' ? '✅ enabled' : '❌ disabled'}
 
 </details>
 
